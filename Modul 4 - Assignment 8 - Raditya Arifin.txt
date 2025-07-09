@@ -1,0 +1,5 @@
+1. file postman collection ada di folder postman/ yang terdiri dari :
+   a. todo-collection.json
+   b. todo-environment.json
+
+2. file AI/Developer-Friendly ada di file README.md di root directory

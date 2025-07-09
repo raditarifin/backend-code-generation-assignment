@@ -1,0 +1,67 @@
+{
+  "id": "todo-api-environment",
+  "name": "TODO API Environment",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3002",
+      "description": "Base URL for the TODO API server",
+      "enabled": true
+    },
+    {
+      "key": "apiVersion",
+      "value": "v1",
+      "description": "API version",
+      "enabled": true
+    },
+    {
+      "key": "authToken",
+      "value": "",
+      "description": "JWT authentication token (automatically set by login requests)",
+      "enabled": true
+    },
+    {
+      "key": "userId",
+      "value": "",
+      "description": "Current user ID (automatically set by login requests)",
+      "enabled": true
+    },
+    {
+      "key": "listId",
+      "value": "",
+      "description": "Sample list ID (automatically set when creating a list)",
+      "enabled": true
+    },
+    {
+      "key": "taskId",
+      "value": "",
+      "description": "Sample task ID (automatically set when creating a task)",
+      "enabled": true
+    },
+    {
+      "key": "adminEmail",
+      "value": "admin@todoapi.com",
+      "description": "Admin user email for testing",
+      "enabled": true
+    },
+    {
+      "key": "adminPassword",
+      "value": "admin123",
+      "description": "Admin user password for testing",
+      "enabled": true
+    },
+    {
+      "key": "userEmail",
+      "value": "user@todoapi.com",
+      "description": "Regular user email for testing",
+      "enabled": true
+    },
+    {
+      "key": "userPassword",
+      "value": "user123",
+      "description": "Regular user password for testing",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}
