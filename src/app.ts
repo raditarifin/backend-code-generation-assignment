@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './config/swagger';
 import { logger } from './utils/logger';
 import { requestLogger, errorLogger } from './middleware/logging';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler';
@@ -23,6 +25,18 @@ app.use(express.urlencoded({ extended: true }));
 
 // Request logging middleware
 app.use(requestLogger);
+
+// Swagger UI setup
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'TODO API Documentation',
+  swaggerOptions: {
+    filter: true,
+    showRequestHeaders: true,
+    showCommonExtensions: true,
+  },
+}));
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -47,6 +61,7 @@ app.get('/api', (req, res) => {
       lists: '/api/v1/lists',
       tasks: '/api/v1/tasks',
       health: '/health',
+      docs: '/api-docs',
     },
   });
 });
@@ -70,8 +85,9 @@ app.listen(PORT, () => {
   logger.logStartup(Number(PORT), process.env.NODE_ENV || 'development');
   logger.info(`🌐 Health check: http://localhost:${PORT}/health`);
   logger.info(`📚 API info: http://localhost:${PORT}/api`);
-  logger.info(`� Auth API: http://localhost:${PORT}/api/v1/auth`);
-  logger.info(`�📋 Lists API: http://localhost:${PORT}/api/v1/lists`);
+  logger.info(`📖 API docs: http://localhost:${PORT}/api-docs`);
+  logger.info(`🔐 Auth API: http://localhost:${PORT}/api/v1/auth`);
+  logger.info(`📋 Lists API: http://localhost:${PORT}/api/v1/lists`);
   logger.info(`✅ Tasks API: http://localhost:${PORT}/api/v1/tasks`);
 });
 

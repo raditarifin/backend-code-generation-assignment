@@ -74,7 +74,20 @@ curl http://localhost:3002/api
 http://localhost:3002/api/v1
 ```
 
-### 🔐 Authentication Flow
+### � Interactive API Documentation
+Access the complete interactive API documentation with Swagger UI:
+```
+http://localhost:3002/api-docs
+```
+
+The Swagger UI provides:
+- **Interactive API Explorer**: Test endpoints directly from the browser
+- **Complete Schema Documentation**: View request/response models
+- **Authentication Testing**: Built-in JWT token management
+- **Example Requests**: Pre-configured examples for all endpoints
+- **Response Validation**: See expected response formats
+
+### �🔐 Authentication Flow
 
 #### 1. Register New User
 ```bash
